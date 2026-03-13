@@ -46,22 +46,10 @@ O gráfico abaixo ilustra a queda nos custos operacionais após a transição pa
 ### II. Exemplo de Política S3 Lifecycle (JSON)
 Configuração técnica para automação do armazenamento:
 
-```json
-{
-  "Rules": [
-    {
-      "ID": "OtimizacaoCustosAbstergo",
-      "Status": "Enabled",
-      "Transitions": [
-        { "Days": 30, "StorageClass": "STANDARD_IA" },
-        { "Days": 90, "StorageClass": "GLACIER" }
-      ],
-      "Expiration": { "Days": 365 }
-    }
-  ]
-}
-
-```
+| ID Regra | Status | Transição (Dias) | Nova Camada de Armazenamento | Expiração Total |
+| :--- | :--- | :--- | :--- | :--- |
+| OtimizacaoCustos | Ativo | 30 Dias | Padrão-IA (Acesso Infrequente) | - |
+| OtimizacaoCustos | Ativo | 90 Dias | Geleira (Arquivamento) | 365 Dias |
 
 ### III. Manual de Boas Práticas
 - Resiliência: Utilizar Spot Instances apenas em aplicações tolerantes a falhas.
@@ -71,4 +59,4 @@ Configuração técnica para automação do armazenamento:
 ---
 
 ### Assinatura do Responsável pelo Projeto: 
-Maike Simoncini da Silva
+*Maike Simoncini da Silva*
